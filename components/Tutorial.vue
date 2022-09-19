@@ -13,7 +13,7 @@
       <div>
         <h2 class="text-2xl font-bold">{{item.name}}</h2>
         <p class="mt-3">{{item.description}}</p>
-        <p class="mt-2">预订按金:{{item.advance}}</p>
+        <p class="mt-2">预订按金:{{item.advance||0}}</p>
         <div class="flex justify-between mt-2">
           <p>售价:{{item.price}}</p>
           <h2 class="mx-8">{{item.preorderable == true ? "可接受预订" : '不接受预订'}}</h2>
