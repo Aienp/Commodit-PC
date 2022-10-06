@@ -1,13 +1,6 @@
 <template>
   <div class="w">
-    <div class="flex-none flex items-center py-4 px-6 bg-white sticky top-0 shadow z-30 justify-between p-4">
-      <div v-for="(item,index) in category"
-           :key="index"
-           :class=" index == currentIndex  ? 'tab':''"
-           >
-      <button  class="py-2 px-5 rounded-full inline-block " @click="ProductList(item.id,index)">{{item.name}}</button>
-      </div>
-    </div>
+   <Tab :category="category" @ProductList="ProductList" ></Tab>
    <div class="p-8 rounded-xl shadow  flex mt-6" v-for="item in list " :key="item.name" >
     <div class="w-3/5 flex flex-col justify-center">
       <div>
@@ -29,18 +22,20 @@
 </template>
 
 <script>
+  import Tab from './Tab.vue'
 export default {
+  components: {
+    Tab
+  },
   data() {
     return {
       list: [],
       category: [],
-      currentIndex: 0,
       id:''
     }
   },
   created() {
-    this.Commoditycategory()
-    // this.ProductList()
+   this.Commoditycategory()
    this.Product()
   },
   methods: {
@@ -65,9 +60,8 @@ export default {
         this.list = res.data.data
       })
     },
-   async ProductList(id, index) {
+    async ProductList(id) {
       this.id = id
-      this.currentIndex = index
       this.Product()
     },
   }
@@ -75,9 +69,6 @@ export default {
 </script>
 
 <style>
-  body{
-   /* background-color: #ccc; */
-  }
   .w{
     width: 640px;
     margin: auto;
