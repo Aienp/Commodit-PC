@@ -1,12 +1,15 @@
 <template>
-  <!-- <Tutorial/> -->
   <div>
-    <nuxt-link to="/"></nuxt-link>
+    详情页
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+
 }
 </script>
+
+<style>
+
+</style>
